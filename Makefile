@@ -1,22 +1,22 @@
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	python -m pip install --upgrade pip
+    pip install ruff black
+    pip install -r requirements.txt
 
 test:
-	python -m flask run
+	#test goes here
 
 format:	
-	black *.py 
+	black .
 
 lint:
-	ruff check *.py
-
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
-
-refactor: format lint
+	# stop the build if there are Python syntax errors or undefined names
+    ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
+    # default set of ruff rules with GitHub Annotations
+    ruff --format=github --target-version=py37 .
 
 deploy:
 	#deploy goes here
 		
-all: install lint test format deploy
+all: 
+	install lint test format deploy
