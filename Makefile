@@ -1,6 +1,7 @@
 install:
 	python -m pip install --upgrade pip
-    pip install ruff black
+    pip install ruff
+	pip install black
     pip install -r requirements.txt
 
 test:
