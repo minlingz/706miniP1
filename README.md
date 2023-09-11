@@ -1,11 +1,13 @@
 # CI/CD Data Science with Python
 
 ## Setup
-#Install Dependencies
+* #Install Dependencies
 make install
-#Lint with Rull
+
+* #Lint with Rull
 make lint
-#Format with Black
+
+* #Format with Black
 make format
 
 ## Files
