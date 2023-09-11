@@ -1,21 +1,40 @@
-## Feature Design
+# CI/CD Data Science with Python
 
-This is a simple template created for python project. It contains,
+## Setup
+#Install Dependencies
+make install
+#Lint with Rull
+make lint
+#Format with Black
+make format
 
-* ".devcontainer" includes a Dockerfile and devcontainer.json. The 'Dockerfile' within this folder specifies how the container should be built, and other settings in this directory may control development environment configurations.
+## Files
 
-* "workflows" includes GitHub Actions, which contain configuration files for setting up automated build, test, and deployment pipelines for your project.
+* .devcontainer/ -- configures local development container environment
+  
+* .github/workflows/app.yml -- triggers CI/CD on automated build, test, and deployment pipelines
 
-* ".gitignore" is used to specify which files or directories should be excluded from version control when using Git.
+* "Makefile" -- configuration file used in Unix-based systems for automating tasks and building software. 
 
-* "Makefile" is a configuration file used in Unix-based systems for automating tasks and building software. It contains instructions and dependencies for compiling code, running tests, and other development tasks.
-
-* "README.md" is the instruction file for the readers.
-
-* "app.py" is a Python file.
+* "app.py" -- Python example file.
 
 * "requirements.txt" is to specify the dependencies (libraries and packages) required to run the project.
 
-I use Github Actions to run the Makefile as follows: make install, make format, make lint. You can find successful build jobs from Git Action (https://github.com/minlingz/706miniP1/actions/runs/6061466759). The workflow passed 5 version of pythons, 3.7, 3.8, 3.9, 3.10, 3.11. Each build job contains subtasks as showed below.
+## CI/CD
+
+CI/CD flow is triggered by GitHub Actions, to run the Makefile are as follows: make install, make format, and make lint. 
+
+1. Set up job
+2. Run actions/checkout@v3
+3. Setup python 3.x
+4. Install dependencies
+5. Lint with Ruff
+6. Format with Black
+7. Post set up Python 3.x
+8. Post Run actions.checkout@v3
+9. Complete job
+
+## Status
+You can find successful build jobs from Git Action (https://github.com/minlingz/706miniP1/actions/runs/6061466759). The workflow passed 5 versions of pythons, 3.7, 3.8, 3.9, 3.10, 3.11. Each build job contains subtasks as shown below.
 
 ![Alt text](p1build.png)
